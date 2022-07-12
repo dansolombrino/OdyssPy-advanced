@@ -110,7 +110,7 @@ label lotus_flowers:
 
     menu:
         
-        crewmen "Hey! Look! We found these! Shall we eat them?"
+        crewmen "Hey! Look! We found these lotus flowers! Shall we eat them?"
 
         "Uhm, better safe then sorry, let's find something more familiar...":
 
@@ -195,7 +195,7 @@ label polyphemus:
 
         odysseus "Uhm... what do I do?"
 
-        "Makes Polyphemus drunk and kill him, cutting his head with a giant sharp rock":
+        "Make Polyphemus drunk and kill him, cutting his head with a giant sharp rock":
 
             jump that_s_not_quite_how_it_went
 
@@ -665,7 +665,7 @@ label conclusion:
 
 label goodbye_endless_bread:
 
-    $ last_scene = "goodbye_endless_bread"
+    $ last_scene = "aeolus"
 
     scene bg bread
 
