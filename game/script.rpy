@@ -13,12 +13,6 @@ define calypso = Character("Calypso", color="#FF0000")
 # Defining variables for alternative paths
 default bag_of_winds = False
 default bag_of_endless_bread = False
-default moly = False
-default drug = False
-default teiresias = False
-default sacrificed_all_men = False
-default intoxicated = False
-default guilty_conscience = False
 
 # Defining variables for scene selection purposes
 default last_scene = "start"
@@ -40,8 +34,6 @@ default scene_names = [
     "ogygia",
     "conclusion",
     "goodbye_endless_bread",
-    "goodbye_odysseus_dies_turned_pig",
-    "already_sacrificed_all_men",
     "that_s_not_quite_how_it_went",
     "goodbye"
 ]
@@ -136,15 +128,9 @@ label ate_lotus_flowers:
 
     show crewmen stunned at right with dissolve
 
-    play sound "cough_1.mp3"
-
     crewman_1 "GASP! what was there in those flowers?"
 
-    play sound "cough_2.mp3" volume 0.3
-
     crewman_2 "My head is spinnin' like crazy!"
-
-    play sound "cough_1.mp3"
     
     crewman_3 "I don't feel really well..."
 
@@ -157,8 +143,6 @@ label ate_lotus_flowers:
     hide odysseus
 
     show crewmen stunned at right with dissolve
-
-    play sound "cough_2.mp3" volume 0.3
 
     crewmen "We ate the lotus flowers and now we are all sick..."
 
@@ -213,17 +197,13 @@ label polyphemus:
 
         "Makes Polyphemus drunk and kill him, cutting his head with a giant sharp rock":
 
-            $ intoxicated = True
-
-            jump blinded_polyphemus
+            jump that_s_not_quite_how_it_went
 
         "Make Polyphemus drunk and blind him, sticking a burning stake into his eye while he's asleep":
 
             jump blinded_polyphemus
         
         "Take the loss. I'll never be able to counter a giant. I can not win.":
-
-            $ guilty_conscience = True
 
             jump aeolus
     
@@ -336,8 +316,6 @@ label circe:
     scene bg circe
 
     show homer at left with dissolve
-
-    play sound "wind.mp3" volume 0.3
     
     homer "Little did the men know!"
 
@@ -346,18 +324,6 @@ label circe:
     homer "As a result, they get pushed towards Aeaea, lands of Circe goddess"
     
     homer "In Aeaea, Odysseus meets with Hermes, who is very gentle with the travelers."
-
-    menu:
-
-        "What does Hermes gift to Odysseus?"
-
-        "\"moly\": an antidote preventing him from turning into a pig":
-
-            $ moly = True
-
-        "The flame of Gods: a never-ending fire torch":
-
-            $ moly = False
 
     hide homer
 
@@ -379,51 +345,29 @@ label circe:
 
     hide homer
 
-    if moly == True:
+    show odysseus at right with dissolve
 
-        show odysseus at right with dissolve
+    odysseus "What is happening?!?"
 
-        odysseus "What is happening?!?"
+    odysseus "There must be an explanation, I'll look for Circe..."
 
-        odysseus "There must be an explanation, I'll look for Circe..."
+    hide odysseus
 
-        hide odysseus
+    scene bg circe together odysseus
 
-        scene bg circe together odysseus
+    show homer at left with dissolve
 
-        show homer at left with dissolve
+    homer "Odysseus indeed finds Circe"
 
-        homer "Odysseus indeed finds Circe"
+    homer "They actually end up together, spending an entire year in a relationship in the island"
 
-        homer "They actually end up together, spending an entire year in a relationship in the island"
+    homer "Eventually, Circe understands that Odysseus has to go home, so she advises him to what route to take"
 
-        homer "Eventually, Circe understands that Odysseus has to go home, so she advises him to what route to take"
+    homer "Specifically, she tells him to visit the Underworld..."
 
-        homer "Specifically, she tells him to visit the Underworld..."
+    hide homer
 
-        hide homer
-
-        jump underworld
-
-    else:
-
-        show odysseus at right with dissolve
-
-        odysseus "What is happening?!?"
-
-        odysseus "I don't feel very well, my entire body hurts!"
-
-        hide odysseus
-    
-        show homer at left with dissolve
-
-        homer "The transformation to pig affects Odysseus as well"
-
-        homer "The effects of the transformation seem to be much stronger on Odysseus..."
-
-        hide homer
-
-        jump goodbye_odysseus_dies_turned_pig
+    jump underworld
 
 label underworld:
 
@@ -440,8 +384,6 @@ label underworld:
         "Who does Odysseus meet here?"
 
         "The ghosts of numerous people, including: his mother, Teiresias and Agamemnon":
-
-            $ teiresias = True
 
             jump sirens_choice
 
@@ -542,8 +484,6 @@ label sirens_choice:
 
         "Getting by the Sirens requires sacrificing all Odysseus' crew":
 
-            $ sacrificed_all_men = True
-
             jump monsters
 
         "Getting by the Sirens was an impossible task, as their beautiful song drew anyone who heard it in":
@@ -559,57 +499,28 @@ label sirens_correct:
     $ last_scene = "sirens_correct"
 
     scene bg sirens
-
-    if teiresias == True:
         
-        hide homer
+    hide homer
 
-        show odysseus at right with dissolve 
+    show odysseus at right with dissolve 
 
-        odysseus "Gentlemen, Teiresias told me in the underworld what is the deal with the Sirens."
+    odysseus "Gentlemen, Teiresias told me in the underworld what is the deal with the Sirens."
 
-        odysseus "For these reason, you'll tie me to this pole and cover my ears with wax."
+    odysseus "For these reason, you'll tie me to this pole and cover my ears with wax."
 
-        odysseus "This way, I'll be able to conduct you pass the Sirens and we'll be able to continue our navigation"
+    odysseus "This way, I'll be able to conduct you pass the Sirens and we'll be able to continue our navigation"
 
-        odysseus "All clear?"
+    odysseus "All clear?"
 
-        hide odysseus
+    hide odysseus
 
-        show crewmen at right with dissolve 
+    show crewmen at right with dissolve 
 
-        crewmen "YES, SIR!"
+    crewmen "YES, SIR!"
 
-        hide crewmen
+    hide crewmen
 
-        jump monsters
-
-    else:
-        homer "The men were not sufficiently prepared and did not cover their ears"
-
-        homer "As a result, all of them hear sirens' songs and get distracted by them"
-
-        hide homer
-
-        show crewmen at right with dissolve
-
-        crewmen_1 "Wow, this chant is so beautiful!"
-
-        crewmen_1 "This is the only thing I want to listen to for the rest of my life!"
-
-        hide crewmen
-
-        show odysseus at left with dissolve
-
-        odysseus "\"I want to focus so much, but I just can't seem to!\""
-
-        odysseus "Gentleman! Let's stir away!"
-        
-        odysseus "I have to admit, I'm so distracted, I'm not sure I gave the right directions to my crew..."
-
-        hide odysseus
-
-        jump start
+    jump monsters
 
 label monsters:
 
@@ -627,35 +538,9 @@ label monsters:
 
     scylla_and_charybdis "You are not allowed to pass through any of the paths of this bifurcation, unless a sacrifice is made"
 
-    scylla_and_charybdis "We propose you three options."    
-    
-    menu:
+    scylla_and_charybdis "We want you to sacrifice 6 men of your crew, otherwise, we are going to kill them all."
 
-        "What does Odysseus do?"
-
-        "Sacrifices 6 men, to get access to the longest path":
-
-            if sacrificed_all_men == False:
-
-                jump helios
-
-            else:
-
-                jump already_sacrificed_all_men
-
-        "Sacrifices all his crew, to get access to the shortest path":
-
-            if sacrificed_all_men == False:
-
-                jump that_s_not_quite_how_it_went
-
-            else:
-
-                jump already_sacrificed_all_men
-
-        "Refuses both offers and gets killed, together with his men, by Scylla and Charybdis":
-
-            jump that_s_not_quite_how_it_went
+    jump helios
                 
 
 label helios:
@@ -816,8 +701,6 @@ label goodbye_endless_bread:
 
     homer "Amist the confusion, Odysseus is wounded to dead"
 
-    play sound "sinking_ship.mp3" volume 0.3
-
     homer "The entire ship is out of control and eventually it crashes against a giant rock."
 
     homer "Odysseus and crew die, alone, in the middle of the Mediterranea Sea"
@@ -827,47 +710,6 @@ label goodbye_endless_bread:
     homer "But avarice and rivalry eventually killed them all."
 
     jump that_s_not_quite_how_it_went
-
-
-
-label goodbye_odysseus_dies_turned_pig:
-
-    $ last_scene = "goodbye_odysseus_dies_turned_pig"
-    
-    scene bg pig
-
-    show homer at left with dissolve
-
-    homer "Differently from his crewmen, Odysseus can't seem to live in his pig form"
-
-    homer "He can't speak, eat nor drink..."
-
-    homer "Several days will pass, after which Odysseus will die out of denutrition"
-
-    jump that_s_not_quite_how_it_went
-
-label already_sacrificed_all_men:
-
-    $ last_scene = "already_sacrificed_all_men"
-
-    scene bg confused
-
-    show homer at left with dissolve
-
-    homer "Something's not right..."
-
-    homer "You said that Odysseus sacrifices all of his men to pass through Charybdis, but you said that he sacrificed all of his men to pass the Sirens..."
-
-    menu:
-        
-        "What do you want to do?"
-
-        "Retry from my last scene":
-
-            jump sirens_choice
-
-        "Go study maths...":
-            jump goodbye
 
 label that_s_not_quite_how_it_went:
 
@@ -884,12 +726,6 @@ label that_s_not_quite_how_it_went:
         "Retry from my last scene":
             
             jump expression last_scene
-
-        "Retry from random scene":
-
-            $ import random
-            $ random_label_to_jump_to = random.choice(scene_names)
-            jump expression random_label_to_jump_to
 
         "Go study maths...":
             jump goodbye
@@ -909,9 +745,3 @@ label goodbye:
         "Play again from the start":
 
             jump start
-        
-        "Play again from a random scene":
-
-            $ import random
-            $ random_label_to_jump_to = random.choice(scene_names)
-            jump expression random_label_to_jump_to
