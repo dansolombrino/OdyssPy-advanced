@@ -1,4 +1,4 @@
-﻿# Defining characters
+﻿# See "proficient" version for fully commented code
 define homer = Character("Homer", color="#F8347C")
 define crewmen = Character("Odysseus' crewmen", color="#FFA630")
 define crewman_1 = Character("Crewman 1", color="#B5FD39")
@@ -10,11 +10,11 @@ define scylla_and_charybdis = Character("Scylla and Charybdis", color="#FF0000")
 define helios = Character("Helios", color="#A5B5BF")
 define calypso = Character("Calypso", color="#FF0000")
 
-# Defining variables for alternative paths
+# See "proficient" version for fully commented code
 default bag_of_winds = False
 default bag_of_endless_bread = False
 
-# Defining variables for scene selection purposes
+# See "proficient" version for fully commented code
 default last_scene = "start"
 default scene_names = [
     "start",
@@ -38,7 +38,7 @@ default scene_names = [
     "goodbye"
 ]
 
-# Actual game
+# See "proficient" version for fully commented code
 
 label start:
 
