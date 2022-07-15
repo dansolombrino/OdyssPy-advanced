@@ -484,7 +484,7 @@ label sirens_choice:
 
         "Getting by the Sirens requires sacrificing all Odysseus' crew":
 
-            jump monsters
+            jump that_s_not_quite_how_it_went
 
         "Getting by the Sirens was an impossible task, as their beautiful song drew anyone who heard it in":
 
@@ -708,6 +708,8 @@ label goodbye_endless_bread:
     homer "They started young, fought the war and were happy to get back home"
 
     homer "But avarice and rivalry eventually killed them all."
+
+    $ bag_of_endless_bread = False
 
     jump that_s_not_quite_how_it_went
 
