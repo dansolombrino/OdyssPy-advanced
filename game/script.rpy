@@ -205,7 +205,7 @@ label polyphemus:
         
         "Take the loss. I'll never be able to counter a giant. I can not win.":
 
-            jump aeolus
+            jump that_s_not_quite_how_it_went
     
 
 label blinded_polyphemus:
@@ -236,7 +236,7 @@ label blinded_polyphemus:
 
         "Aeaea, home of the goddess, Circe":
 
-            jump circe
+            jump that_s_not_quite_how_it_went
 
 
 label aeolus:
